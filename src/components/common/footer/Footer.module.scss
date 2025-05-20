@@ -1,0 +1,7 @@
+@use "@/styles/variables.scss" as *;
+
+.footer{
+  border-top: $border;
+  text-align: center;
+  padding: 1.5rem;
+}

@@ -1,0 +1,47 @@
+@use "@/styles/variables.scss" as *;
+
+.card {
+  border-radius: $border_radius;
+  overflow: hidden;
+  border: $border;
+  cursor: pointer;
+  &__poster {
+    position: relative;
+    aspect-ratio: 9/12;
+    img{
+      object-fit: cover;
+    }
+  }
+  &__rating {
+    position: absolute;
+    bottom: 0.5rem;
+    inset-inline-start: 0.5rem;
+    border-radius: 5rem;
+    background-color: rgba(#000, 0.8);
+    padding: 0.125rem 0.625rem;
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+
+    &__icon {
+      color: rgb(255, 208, 78);
+      display: flex;
+      padding-bottom: 1px;
+      svg{
+        width: 0.9rem;
+      }
+    }
+  }
+
+  &__info{
+    padding: 1rem;
+    &__title{
+      margin-bottom: 0.5rem;
+    }
+    &__date{
+      color: $text_gray;
+    }
+  }
+}

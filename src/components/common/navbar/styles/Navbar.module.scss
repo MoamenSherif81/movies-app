@@ -1,0 +1,38 @@
+@use "@/styles/variables.scss" as *;
+
+.navbar{
+  position: sticky;
+  top: 0;
+  padding: 1.25rem 1rem;
+  background-color: rgba($bg_color, .8);
+  backdrop-filter: blur(12px);
+  border-bottom: $border;
+
+  .navbar__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__links{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    &__item{
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: $text_gray;
+      cursor: pointer;
+
+      span {
+        padding-bottom: 2px;
+        display: flex;
+      }
+
+      &.active{
+        color: white;
+      }
+    }
+  }
+}
