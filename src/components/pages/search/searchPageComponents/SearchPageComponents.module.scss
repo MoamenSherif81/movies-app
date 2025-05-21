@@ -1,0 +1,13 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__movies {
+    flex-grow: 1;
+  }
+
+  &__error{
+    text-align: center;
+  }
+}

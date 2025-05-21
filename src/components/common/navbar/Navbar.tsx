@@ -1,12 +1,15 @@
 import styles from "./styles/Navbar.module.scss";
 import { favouriteIcon, movieIcon, searchIcon } from "../../../utils/icons";
 import NavLink from "./NavLink";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <header className={`${styles.navbar}`}>
       <div className={`${styles.navbar__content} container`}>
-        <h4 className={`${styles.navbar__logo}`}>Movies App</h4>
+        <h4 className={`${styles.navbar__logo}`}>
+          <Link href="/">Movies App</Link>
+        </h4>
         <nav aria-label="Main navigation">
           <ul className={`${styles.navbar__links}`}>
             <NavLink href="/" className={`${styles.navbar__links__item}`}>

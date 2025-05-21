@@ -1,0 +1,25 @@
+@use "@/styles/mixins" as *;
+@use "@/styles/variables" as *;
+
+.message{
+  text-align: center;
+  height: 100%;
+  @include flex-center;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 30rem;
+  margin: 0 auto;
+
+  &__description{
+    color: $text_gray;
+  }
+
+  &__btn{
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: $primary_color;
+    color: white;
+    border-radius: $border_radius;
+  }
+}

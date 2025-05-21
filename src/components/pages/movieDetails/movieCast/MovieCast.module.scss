@@ -1,0 +1,52 @@
+@use "src/styles/mixins.scss" as *;
+@use "src/styles/variables.scss" as *;
+
+.cast{
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+    &__item{
+      &__image{
+        width: 100%;
+        height: 15rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        position: relative;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        img{
+          object-fit: cover;
+          object-position: top;
+          border-radius: $border_radius;
+          transition: .3s;
+        }
+      }
+      &:hover &__image{
+        img{
+          transform: scale(1.1);
+        }
+      }
+      &__character{
+        margin-top: 0.25rem;
+        color: $text_gray;
+      }
+    }
+  }
+}
+
+@include responsive(md){
+  .cast{
+    &__list{
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@include responsive(sm){
+  .cast{
+    &__list{
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

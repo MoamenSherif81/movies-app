@@ -1,3 +1,5 @@
+"use client";
+
 import { IMovie } from "@/types/types";
 import styles from "./HomePageTrending.module.scss";
 import MovieCard from "@/components/common/movieCard/MovieCard";
@@ -10,7 +12,7 @@ interface ITrendingProps {
 export default function HomePageTrending({ movies }: ITrendingProps) {
   return (
     <section className={`${styles.trending}`}>
-      <h3 className={`${styles.trending__title}`}>Trending Movies</h3>
+      <h3 className="section_title">Trending Movies</h3>
       <MoviesGrid movies={movies} />
     </section>
   );

@@ -1,0 +1,11 @@
+.favourite{
+  background-color: rgba(#000, 0.8);
+  backdrop-filter: blur(4px);
+  padding: 0.35rem;
+  display: flex;
+  border-radius: 50%;
+  transition: .3s;
+  &--active{
+    color: red;
+  }
+}

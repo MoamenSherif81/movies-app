@@ -5,11 +5,26 @@
   overflow: hidden;
   border: $border;
   cursor: pointer;
+  position: relative;
+  display: block;
+  transition: .3s;
+  height: 100%;
   &__poster {
     position: relative;
     aspect-ratio: 9/12;
+    overflow: hidden;
     img{
       object-fit: cover;
+      transition: .3s;
+    }
+  }
+  &:hover {
+    box-shadow: 0px 0px 10px 3px rgba(0 0 0 / .3);
+    transform: translateY(-0.5rem);
+    .card__poster{
+      img{
+        transform: scale(1.1);
+      }
     }
   }
   &__rating {
@@ -33,6 +48,12 @@
         width: 0.9rem;
       }
     }
+  }
+
+  &__favourite{
+    position: absolute;
+    top: 0.5rem;
+    inset-inline-end: 0.5rem;
   }
 
   &__info{

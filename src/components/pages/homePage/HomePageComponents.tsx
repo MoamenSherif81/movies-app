@@ -1,22 +1,18 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import HomePageHero from "./homePageHero/HomePageHero";
+import { IMovie } from "@/types/types";
 import HomePageTrending from "./homePageTrending/HomePageTrending";
+import Search from "@/components/common/search/Search";
 
-export default function HomePageComponents() {
-  const [movies, setMovies] = useState([])
-
-  useEffect(() => {
-    fetch("https://api.tvmaze.com/shows")
-      .then((response) => response.json())
-      .then((data) => setMovies(data?.slice(0, 8))) // Get the first 8 only as the returned data have 250 movie
-  }, [])
+export default function HomePageComponents({ data }: { data: IMovie[] }) {
+  const movies = data?.slice(0, 8);
 
   return (
     <div>
-      <HomePageHero />
-      <HomePageTrending movies={movies}/>
+      <Search
+        initialValue=""
+        title="Discover Your Next Favorite Movie"
+        description="Search for movies, explore details, and save your favorites all in one place."
+      />
+      <HomePageTrending movies={movies} />
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import HomePageComponents from "@/components/pages/homePage/HomePageComponents";
+import { getRequest } from "@/config/APIConfig";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getRequest("/shows")
+
   return (
-    <main className={`container`}>
-      <HomePageComponents />
-    </main>
+    <div className={`container`}>
+      <HomePageComponents data={data} />
+    </div>
   );
 }

@@ -7,11 +7,16 @@
   background-color: rgba($bg_color, .8);
   backdrop-filter: blur(12px);
   border-bottom: $border;
+  z-index: 1;
 
   .navbar__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__logo{
+    cursor: pointer;
   }
 
   &__links{
