@@ -11,7 +11,6 @@ import {
 import NavLink from "./NavLink";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { useMediaQuery } from "react-responsive";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
