@@ -133,3 +133,4 @@ Instead of simple loading spinners, I implemented skeleton screens that mimic th
 - **React Query**: For data fetching and caching
 - **Axios**: For API requests
 - **ESLint & Prettier**: For code quality
+
