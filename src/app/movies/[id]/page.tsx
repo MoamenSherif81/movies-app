@@ -1,10 +1,8 @@
-import React from "react"
-
 import MovieDetailsPageComponents from "@/components/pages/movieDetails/movieDetailsPageComponents/MovieDetailsPageComponents"
 import { getRequest } from "@/lib/APIConfig"
 
 interface IPageProps {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export default async function page({ params }: IPageProps) {

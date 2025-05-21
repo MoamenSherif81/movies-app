@@ -7,15 +7,14 @@ import {
 import SearchPageComponents from "@/components/pages/search/searchPageComponents/SearchPageComponents"
 import { getRequest } from "@/lib/APIConfig"
 
-export default async function Page({
-  searchParams,
-}: {
-  searchParams: { q?: string }
-}) {
+interface IPageProps {
+  searchParams: Promise<{ q: string }>
+}
+
+export default async function Page({ searchParams }: IPageProps) {
   const queryClient = new QueryClient()
 
-  const params = await searchParams
-  const searchQuery = params.q || ""
+  const { q: searchQuery } = await searchParams
 
   if (searchQuery) {
     await queryClient.prefetchQuery({
