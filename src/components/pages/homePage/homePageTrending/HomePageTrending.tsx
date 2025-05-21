@@ -11,9 +11,14 @@ interface ITrendingProps {
 
 export default function HomePageTrending({ movies }: ITrendingProps) {
   return (
-    <section className={`${styles.trending}`}>
-      <h3 className="section_title">Trending Movies</h3>
-      <MoviesGrid movies={movies} />
+    <section
+      className={`${styles.trending}`}
+      aria-labelledby="trending-movies-title"
+    >
+      <h3 id="trending-movies-title" className="section_title">
+        Trending Movies
+      </h3>
+      <MoviesGrid aria-label="Collection of trending movies" movies={movies} />
     </section>
   );
 }

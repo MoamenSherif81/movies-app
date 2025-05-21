@@ -4,6 +4,7 @@ import Link from "next/link"; // Import Link
 import { starIcon } from "@/utils/icons";
 import { IMovie } from "@/types/types";
 import FavouriteButton from "../favouriteButton/FavouriteButton";
+import ImageOptimized from "../ImageOptimized/ImageOptimized";
 
 interface IMovieCardProps {
   movie: IMovie;
@@ -17,15 +18,9 @@ export default function MovieCard({ movie }: IMovieCardProps) {
       aria-label={`View details for ${movie.name} (${movie?.premiered})`}
     >
       <div className={styles.card__poster}>
-        <Image
-          src={movie.image?.original || "/placeholder.jpg"}
+        <ImageOptimized
+          src={movie.image?.original}
           alt={`Poster for ${movie.name}`}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={false}
-          loading="lazy"
-          placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxYjFjNDYiLz48L3N2Zz4="
         />
         {movie?.rating?.average && (
           <div className={styles.card__rating} aria-label={`Rating: ${movie?.rating?.average} out of 10`}>

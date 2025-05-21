@@ -8,23 +8,25 @@ export default function Navbar() {
     <header className={`${styles.navbar}`}>
       <div className={`${styles.navbar__content} container`}>
         <h4 className={`${styles.navbar__logo}`}>
-          <Link href="/">Movies App</Link>
+          <Link href="/" aria-label="Movies App - Home page">
+            Movies App
+          </Link>
         </h4>
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" role="navigation">
           <ul className={`${styles.navbar__links}`}>
             <NavLink href="/" className={`${styles.navbar__links__item}`}>
-              <span>{movieIcon}</span>
+              <span aria-hidden="true">{movieIcon}</span>
               Home
             </NavLink>
             <NavLink href="/search" className={`${styles.navbar__links__item}`}>
-              <span>{searchIcon}</span>
+              <span aria-hidden="true">{searchIcon}</span>
               Search
             </NavLink>
             <NavLink
               href="/favourite"
               className={`${styles.navbar__links__item}`}
             >
-              <span>{favouriteIcon}</span>
+              <span aria-hidden="true">{favouriteIcon}</span>
               Favourite
             </NavLink>
           </ul>

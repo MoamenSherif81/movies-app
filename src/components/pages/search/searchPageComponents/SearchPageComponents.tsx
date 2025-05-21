@@ -47,10 +47,7 @@ export default function SearchPageComponents() {
   }, [hasSearched]);
 
   return (
-    <div
-      className={`${styles.search}`}
-      role="main"
-    >
+    <div className={`${styles.search}`} aria-label="Search page main content">
       <div>
         <Search
           onSearch={handleSearch}
@@ -85,7 +82,11 @@ export default function SearchPageComponents() {
                 Search Results for "{searchInput}"
               </h3>
             )}
-            <MoviesGrid movies={movies} loading={isLoading} />
+            <MoviesGrid
+              aria-label={`Search results for ${searchInput}`}
+              movies={movies}
+              loading={isLoading}
+            />
           </Fragment>
         )}
 

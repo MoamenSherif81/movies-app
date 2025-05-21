@@ -23,19 +23,30 @@ export default function FavouriteButton({
     return favourites.some((movieEle) => movieEle?.id == movie?.id);
   }, [favourites]);
 
-  function handleToggleFavourite(e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
+  function handleToggleFavourite(
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
     e.stopPropagation();
     e.preventDefault();
     if (isFavourite) removeFavourite(movie);
     else addFavourite(movie);
   }
 
+  const buttonText = isFavourite
+    ? `Remove ${movie.name} from favorites`
+    : `Add ${movie.name} to favorites`;
+
   return (
-    <div
+    <button
       className={`${styles.favourite} ${isFavourite ? styles["favourite--active"] : ""} ${className || ""}`}
       onClick={handleToggleFavourite}
+      aria-label={buttonText}
+      aria-pressed={isFavourite}
+      title={buttonText}
     >
-      {isFavourite ? filledFavouriteIcon : favouriteIcon}
-    </div>
+      <span aria-hidden="true">
+        {isFavourite ? filledFavouriteIcon : favouriteIcon}
+      </span>
+    </button>
   );
 }

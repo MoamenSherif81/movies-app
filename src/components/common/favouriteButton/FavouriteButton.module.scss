@@ -1,11 +1,18 @@
-.favourite{
+.favourite {
   background-color: rgba(#000, 0.8);
   backdrop-filter: blur(4px);
   padding: 0.35rem;
   display: flex;
   border-radius: 50%;
-  transition: .3s;
-  &--active{
+  transition: 0.3s;
+  border: 0;
+  outline: 0;
+  color: white;
+  cursor: pointer;
+  span {
+    display: flex;
+  }
+  &--active {
     color: red;
   }
 }

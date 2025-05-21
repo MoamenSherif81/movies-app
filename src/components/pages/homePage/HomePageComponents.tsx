@@ -6,7 +6,7 @@ export default function HomePageComponents({ data }: { data: IMovie[] }) {
   const movies = data?.slice(0, 8);
 
   return (
-    <div>
+    <div aria-label="Movie discovery homepage">
       <Search
         initialValue=""
         title="Discover Your Next Favorite Movie"

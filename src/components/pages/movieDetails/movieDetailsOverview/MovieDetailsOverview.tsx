@@ -4,6 +4,7 @@ import styles from "./MovieDetailsOverview.module.scss";
 import Image from "next/image";
 import moment from "moment";
 import { starIcon } from "@/utils/icons";
+import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized";
 
 interface IMovieDetailsOverviewProps {
   data: IMovie;
@@ -47,14 +48,10 @@ export default function MovieDetailsOverview({
   return (
     <section className={`${styles.overview}`}>
       <div className={`${styles.overview__poster}`}>
-        <Image
-          src={data?.image?.original || "/placeholder.jpg"}
+        <ImageOptimized
+          src={data?.image?.original}
           alt={`${data?.name} poster`}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority={true}
-          placeholder="blur"
-          blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxYjFjNDYiLz48L3N2Zz4="
         />
       </div>
       <div className={`${styles.overview__text}`}>

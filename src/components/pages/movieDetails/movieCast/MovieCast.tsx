@@ -1,6 +1,7 @@
 import { ICastMember } from "@/types/types";
 import styles from "./MovieCast.module.scss";
 import Image from "next/image";
+import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized";
 
 interface IMovieCastProps {
   data: ICastMember[];
@@ -17,14 +18,9 @@ export default function MovieCast({ data }: IMovieCastProps) {
             className={styles.cast__list__item}
           >
             <div className={styles.cast__list__item__image}>
-              <Image
-                src={castMember.person.image?.medium || "/placeholder.jpg"}
+              <ImageOptimized
+                src={castMember.person.image?.medium}
                 alt={`${castMember.person.name} headshot`}
-                fill
-                sizes="(max-width: 768px) 25vw, 20vw"
-                loading="lazy"
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMxYjFjNDYiLz48L3N2Zz4="
               />
             </div>
             <div className={styles.cast__list__item__info}>

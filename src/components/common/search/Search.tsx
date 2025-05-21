@@ -51,21 +51,30 @@ export default function Search({
   };
 
   return (
-    <section className={`${styles.hero}`}>
-      <h1 className={`${styles.hero__title}`}>{title}</h1>
+    <section className={`${styles.hero}`} aria-labelledby="search-title">
+      <h1 id="search-title" className={`${styles.hero__title}`}>{title}</h1>
       <p className={`${styles.hero__description}`}>{description}</p>
-      <form onSubmit={handleSubmit} className={`${styles.search}`}>
+      <form
+        onSubmit={handleSubmit}
+        className={`${styles.search}`}
+        role="search"
+        aria-label="Search for movies"
+      >
         <input
           className={`${styles.search__input}`}
           name="search"
+          type="search"
           placeholder="Search for movies..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          aria-autocomplete="list"
+            autoComplete="off"
         />
         <button
           className={`${styles.search__btn}`}
           type="submit"
           disabled={isLoading}
+          aria-busy={isLoading ? "true" : "false"}
         >
           Search
         </button>

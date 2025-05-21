@@ -20,7 +20,7 @@ export default function RootLayout({
         <Providers>
           <div className="layout">
             <Navbar />
-            <main>{children}</main>
+            <main role="main">{children}</main>
           </div>
           <Footer />
         </Providers>

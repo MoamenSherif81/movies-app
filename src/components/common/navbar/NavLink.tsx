@@ -20,6 +20,7 @@ export default function NavLink({ href, children, className }: INavLinkProps) {
       <Link
         className={`${className || ""} ${isActive ? styles.active : ""}`}
         href={href}
+        aria-current={isActive ? "page" : undefined}
       >
         {children}
       </Link>
