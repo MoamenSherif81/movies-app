@@ -1,5 +1,5 @@
 import HomePageComponents from "@/components/pages/homePage/HomePageComponents"
-import { getRequest } from "@/config/APIConfig"
+import { getRequest } from "@/lib/APIConfig"
 
 export default async function Home() {
   const data = await getRequest("/shows")

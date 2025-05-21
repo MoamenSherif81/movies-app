@@ -5,7 +5,7 @@ import {
 } from "@tanstack/react-query"
 
 import SearchPageComponents from "@/components/pages/search/searchPageComponents/SearchPageComponents"
-import { getRequest } from "@/config/APIConfig"
+import { getRequest } from "@/lib/APIConfig"
 
 export default async function Page({
   searchParams,

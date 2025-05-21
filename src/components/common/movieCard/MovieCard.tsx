@@ -4,7 +4,7 @@ import type { IMovie } from "@/types/types"
 import { starIcon } from "@/utils/icons"
 
 import FavouriteButton from "../favouriteButton/FavouriteButton"
-import ImageOptimized from "../ImageOptimized/ImageOptimized"
+import ImageOptimized from "../imageOptimized/ImageOptimized"
 import styles from "./MovieCard.module.scss"
 
 interface IMovieCardProps {

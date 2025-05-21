@@ -1,7 +1,7 @@
 import parse from "html-react-parser"
 import moment from "moment"
 
-import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized"
+import ImageOptimized from "@/components/common/imageOptimized/ImageOptimized"
 import type { IMovie } from "@/types/types"
 import { starIcon } from "@/utils/icons"
 

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 
-import { getRequest } from "@/config/APIConfig"
+import { getRequest } from "@/lib/APIConfig"
 
 export default function useSearchRestults(currSearchInput: string) {
   return useQuery({

@@ -1,4 +1,4 @@
-import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized"
+import ImageOptimized from "@/components/common/imageOptimized/ImageOptimized"
 import type { ICastMember } from "@/types/types"
 
 import styles from "./MovieCast.module.scss"

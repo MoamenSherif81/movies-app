@@ -1,7 +1,7 @@
 import React from "react"
 
 import MovieDetailsPageComponents from "@/components/pages/movieDetails/movieDetailsPageComponents/MovieDetailsPageComponents"
-import { getRequest } from "@/config/APIConfig"
+import { getRequest } from "@/lib/APIConfig"
 
 interface IPageProps {
   params: { id: string }
