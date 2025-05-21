@@ -1,26 +1,31 @@
-import SearchPageComponents from "@/components/pages/search/searchPageComponents/SearchPageComponents";
-import { getRequest } from "@/config/APIConfig";
-import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query"
+
+import SearchPageComponents from "@/components/pages/search/searchPageComponents/SearchPageComponents"
+import { getRequest } from "@/config/APIConfig"
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { q?: string };
+  searchParams: { q?: string }
 }) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient()
 
-  const params = await searchParams;
-  const searchQuery = params.q || '';
+  const params = await searchParams
+  const searchQuery = params.q || ""
 
   if (searchQuery) {
     await queryClient.prefetchQuery({
       queryKey: ["search", searchQuery],
       queryFn: async () =>
         await getRequest(`/search/shows`, { q: searchQuery }),
-    });
+    })
   }
 
-  const hydratedState = dehydrate(queryClient);
+  const hydratedState = dehydrate(queryClient)
 
   return (
     <HydrationBoundary state={hydratedState}>
@@ -28,5 +33,5 @@ export default async function Page({
         <SearchPageComponents />
       </div>
     </HydrationBoundary>
-  );
+  )
 }

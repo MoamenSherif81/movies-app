@@ -1,9 +1,10 @@
-import { IMovie } from "@/types/types";
-import HomePageTrending from "./homePageTrending/HomePageTrending";
-import Search from "@/components/common/search/Search";
+import Search from "@/components/common/search/Search"
+import type { IMovie } from "@/types/types"
+
+import HomePageTrending from "./homePageTrending/HomePageTrending"
 
 export default function HomePageComponents({ data }: { data: IMovie[] }) {
-  const movies = data?.slice(0, 8);
+  const movies = data?.slice(0, 8)
 
   return (
     <div aria-label="Movie discovery homepage">
@@ -14,5 +15,5 @@ export default function HomePageComponents({ data }: { data: IMovie[] }) {
       />
       <HomePageTrending movies={movies} />
     </div>
-  );
+  )
 }

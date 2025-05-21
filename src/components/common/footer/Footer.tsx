@@ -1,7 +1,7 @@
-import styles from "./Footer.module.scss";
+import styles from "./Footer.module.scss"
 
 export default function Footer() {
-  const year = new Date().getFullYear();
+  const year = new Date().getFullYear()
 
   return (
     <footer
@@ -13,5 +13,5 @@ export default function Footer() {
         © {year} Movies App. All rights reserved.
       </div>
     </footer>
-  );
+  )
 }

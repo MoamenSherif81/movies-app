@@ -1,50 +1,53 @@
-"use client";
+"use client"
 
-import useSearchRestults from "@/hooks/useSearchRestults";
-import { Fragment, useEffect, useMemo, useRef, useState } from "react";
-import styles from "./SearchPageComponents.module.scss";
-import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid";
-import Search from "@/components/common/search/Search";
-import { useSearchParams } from "next/navigation";
-import SearchNoResults from "../searchNoResults/SearchNoResults";
+import { useSearchParams } from "next/navigation"
+import { Fragment, useEffect, useMemo, useRef, useState } from "react"
+
+import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid"
+import Search from "@/components/common/search/Search"
+import useSearchRestults from "@/hooks/useSearchRestults"
+import type { IMovie } from "@/types/types"
+
+import SearchNoResults from "../searchNoResults/SearchNoResults"
+import styles from "./SearchPageComponents.module.scss"
 
 export default function SearchPageComponents() {
-  const params = useSearchParams();
-  const initialSearchQuery = params.get("q") || "";
-  const [searchInput, setSearchInput] = useState<string>(initialSearchQuery);
-  const [hasSearched, setHasSearched] = useState(false);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const params = useSearchParams()
+  const initialSearchQuery = params.get("q") || ""
+  const [searchInput, setSearchInput] = useState<string>(initialSearchQuery)
+  const [hasSearched, setHasSearched] = useState(false)
+  const gridRef = useRef<HTMLDivElement>(null)
 
-  const { data, isLoading, error } = useSearchRestults(searchInput);
+  const { data, isLoading, error } = useSearchRestults(searchInput)
 
   const movies = useMemo(() => {
-    return data?.map((item: any) => item?.show) || [];
-  }, [data]);
+    return data?.map((item: { show: IMovie }) => item?.show) || []
+  }, [data])
 
   const handleSearch = (query: string) => {
-    setSearchInput(query);
+    setSearchInput(query)
 
-    setHasSearched(true);
+    setHasSearched(true)
 
-    const url = new URL(window.location.href);
-    url.search = query ? `?q=${encodeURIComponent(query)}` : "";
+    const url = new URL(window.location.href)
+    url.search = query ? `?q=${encodeURIComponent(query)}` : ""
 
-    window.history.pushState({ path: url.toString() }, "", url.toString());
-  };
+    window.history.pushState({ path: url.toString() }, "", url.toString())
+  }
 
   useEffect(() => {
     if (gridRef.current && hasSearched) {
-      const elementPosition = gridRef.current.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - 100;
+      const elementPosition = gridRef.current.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - 100
 
       window?.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
-      });
+      })
 
-      setHasSearched(false);
+      setHasSearched(false)
     }
-  }, [hasSearched]);
+  }, [hasSearched])
 
   return (
     <div className={`${styles.search}`} aria-label="Search page main content">
@@ -79,7 +82,7 @@ export default function SearchPageComponents() {
           <Fragment>
             {!isLoading && (
               <h3 className={`section_title ${styles.search__results_title}`}>
-                Search Results for "{searchInput}"
+                Search Results for {`"${searchInput}"`}
               </h3>
             )}
             <MoviesGrid
@@ -101,5 +104,5 @@ export default function SearchPageComponents() {
         )}
       </section>
     </div>
-  );
+  )
 }

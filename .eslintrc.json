@@ -36,7 +36,8 @@
       ],
       "extends": [
         "next/core-web-vitals", // Next.js core web vitals plugin
-        "plugin:prettier/recommended" // Integrates Prettier with ESLint
+        "plugin:prettier/recommended", // Integrates Prettier with ESLint
+        "plugin:@typescript-eslint/recommended"
       ],
       "parser": "@typescript-eslint/parser", // Uses TypeScript parser for ESLint
       "parserOptions": {

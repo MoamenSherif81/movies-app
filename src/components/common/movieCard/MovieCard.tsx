@@ -1,13 +1,14 @@
-import styles from "./MovieCard.module.scss";
-import Image from "next/image";
-import Link from "next/link"; // Import Link
-import { starIcon } from "@/utils/icons";
-import { IMovie } from "@/types/types";
-import FavouriteButton from "../favouriteButton/FavouriteButton";
-import ImageOptimized from "../ImageOptimized/ImageOptimized";
+import Link from "next/link" // Import Link
+
+import type { IMovie } from "@/types/types"
+import { starIcon } from "@/utils/icons"
+
+import FavouriteButton from "../favouriteButton/FavouriteButton"
+import ImageOptimized from "../ImageOptimized/ImageOptimized"
+import styles from "./MovieCard.module.scss"
 
 interface IMovieCardProps {
-  movie: IMovie;
+  movie: IMovie
 }
 
 export default function MovieCard({ movie }: IMovieCardProps) {
@@ -23,8 +24,13 @@ export default function MovieCard({ movie }: IMovieCardProps) {
           alt={`Poster for ${movie.name}`}
         />
         {movie?.rating?.average && (
-          <div className={styles.card__rating} aria-label={`Rating: ${movie?.rating?.average} out of 10`}>
-            <span className={styles.card__rating__icon} aria-hidden="true">{starIcon}</span>
+          <div
+            className={styles.card__rating}
+            aria-label={`Rating: ${movie?.rating?.average} out of 10`}
+          >
+            <span className={styles.card__rating__icon} aria-hidden="true">
+              {starIcon}
+            </span>
             <span className={styles.card__rating__text}>
               {movie?.rating?.average}
             </span>
@@ -39,5 +45,5 @@ export default function MovieCard({ movie }: IMovieCardProps) {
         </p>
       </div>
     </Link>
-  );
+  )
 }

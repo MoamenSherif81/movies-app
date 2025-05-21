@@ -2,7 +2,7 @@ export const movieIcon = (
   <svg fill="currentColor" width="20px" height="20px" viewBox="-2 -2 24 24">
     <path d="M6 15v3h8v-7H6v4zm-2-2v-2H2V9h2V7H2v6h2zm0 2H2v1a2 2 0 0 0 2 2v-3zm14-2V7h-2v2h2v2h-2v2h2zm0 2h-2v3a2 2 0 0 0 2-2v-1zm-4-8V2H6v7h8V7zm4-2V4a2 2 0 0 0-2-2v3h2zM4 5V2a2 2 0 0 0-2 2v1h2zm0-5h12a4 4 0 0 1 4 4v12a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z" />
   </svg>
-);
+)
 
 export const searchIcon = (
   <svg
@@ -20,7 +20,7 @@ export const searchIcon = (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
 export const favouriteIcon = (
   <svg
@@ -35,7 +35,7 @@ export const favouriteIcon = (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const filledFavouriteIcon = (
   <svg
@@ -50,7 +50,7 @@ export const filledFavouriteIcon = (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const starIcon = (
   <svg
@@ -65,7 +65,7 @@ export const starIcon = (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const burgerIcon = (
   <svg
@@ -88,7 +88,7 @@ export const burgerIcon = (
       fill="currentColor"
     />
   </svg>
-);
+)
 
 export const closeIcon = (
   <svg
@@ -108,4 +108,4 @@ export const closeIcon = (
       />
     </g>
   </svg>
-);
+)

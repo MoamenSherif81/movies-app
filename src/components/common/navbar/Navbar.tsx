@@ -1,57 +1,58 @@
-"use client";
+"use client"
 
-import styles from "./styles/Navbar.module.scss";
+import Link from "next/link"
+import { useEffect, useRef, useState } from "react"
+
 import {
   burgerIcon,
   closeIcon,
   favouriteIcon,
   movieIcon,
   searchIcon,
-} from "../../../utils/icons";
-import NavLink from "./NavLink";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+} from "../../../utils/icons"
+import NavLink from "./NavLink"
+import styles from "./styles/Navbar.module.scss"
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [contentHeight, setContentHeight] = useState(0);
-  const contentRef = useRef<HTMLUListElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [contentHeight, setContentHeight] = useState(0)
+  const contentRef = useRef<HTMLUListElement>(null)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 640);
-    };
+      setIsMobile(window.innerWidth <= 640)
+    }
 
-    checkIfMobile();
+    checkIfMobile()
 
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
+    window.addEventListener("resize", checkIfMobile)
+    return () => window.removeEventListener("resize", checkIfMobile)
+  }, [])
 
   const handleLinkClick = () => {
     if (isMobile && isOpen) {
-      setIsOpen(false);
+      setIsOpen(false)
     }
-  };
+  }
 
   useEffect(() => {
     if (!isMobile) {
-      setIsOpen(false);
+      setIsOpen(false)
       if (contentRef.current) {
-        contentRef.current.style.height = "auto";
+        contentRef.current.style.height = "auto"
       }
-      return;
+      return
     }
 
     if (contentRef.current) {
-      contentRef.current.style.height = "auto";
-      const scrollHeight = contentRef.current.scrollHeight;
-      setContentHeight(scrollHeight);
+      contentRef.current.style.height = "auto"
+      const scrollHeight = contentRef.current.scrollHeight
+      setContentHeight(scrollHeight)
 
-      contentRef.current.style.maxHeight = isOpen ? `${scrollHeight}px` : "0px";
+      contentRef.current.style.maxHeight = isOpen ? `${scrollHeight}px` : "0px"
     }
-  }, [isMobile, isOpen]);
+  }, [isMobile, isOpen])
 
   return (
     <header className={styles.navbar}>
@@ -80,12 +81,14 @@ export default function Navbar() {
           className={`${styles.navbar__nav}`}
           ref={contentRef}
           style={{
-            maxHeight: isMobile ? (isOpen ? `${contentHeight}px` : "0px") : "auto",
+            maxHeight: isMobile
+              ? isOpen
+                ? `${contentHeight}px`
+                : "0px"
+              : "auto",
           }}
         >
-          <ul
-            className={`${styles.navbar__links}`}
-          >
+          <ul className={`${styles.navbar__links}`}>
             <NavLink
               href="/"
               className={styles.navbar__links__item}
@@ -114,5 +117,5 @@ export default function Navbar() {
         </nav>
       </div>
     </header>
-  );
+  )
 }

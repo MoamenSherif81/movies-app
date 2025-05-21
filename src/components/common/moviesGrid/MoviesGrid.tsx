@@ -1,11 +1,12 @@
-import { IMovie } from "@/types/types";
-import styles from "./MoviesGrid.module.scss";
-import MovieCard from "../movieCard/MovieCard";
-import MovieCardSkeleton from "../skeletons/MovieCardSkeleton/MovieCardSkeleton";
+import type { IMovie } from "@/types/types"
+
+import MovieCard from "../movieCard/MovieCard"
+import MovieCardSkeleton from "../skeletons/MovieCardSkeleton/MovieCardSkeleton"
+import styles from "./MoviesGrid.module.scss"
 
 interface IMoviesGridProps {
-  movies: IMovie[];
-  loading?: boolean;
+  movies: IMovie[]
+  loading?: boolean
 }
 
 export default function MoviesGrid({ movies, loading }: IMoviesGridProps) {
@@ -21,7 +22,7 @@ export default function MoviesGrid({ movies, loading }: IMoviesGridProps) {
           <MovieCardSkeleton key={`movie-${index}`} />
         ))}
       </div>
-    );
+    )
   }
 
   return (
@@ -35,5 +36,5 @@ export default function MoviesGrid({ movies, loading }: IMoviesGridProps) {
         </li>
       ))}
     </ul>
-  );
+  )
 }

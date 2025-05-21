@@ -1,5 +1,5 @@
-import HomePageComponents from "@/components/pages/homePage/HomePageComponents";
-import { getRequest } from "@/config/APIConfig";
+import HomePageComponents from "@/components/pages/homePage/HomePageComponents"
+import { getRequest } from "@/config/APIConfig"
 
 export default async function Home() {
   const data = await getRequest("/shows")
@@ -8,5 +8,5 @@ export default async function Home() {
     <div className={`container`}>
       <HomePageComponents data={data} />
     </div>
-  );
+  )
 }

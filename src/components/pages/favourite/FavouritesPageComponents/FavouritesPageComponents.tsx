@@ -1,13 +1,15 @@
-"use client";
+"use client"
 
-import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid";
-import { useFavourites } from "@/stores/favourites";
-import styles from "./FavouritesPageComponents.module.scss";
-import { Fragment } from "react";
-import NoFavouritesMessage from "../NoFavouritesMessage/NoFavouritesMessage";
+import { Fragment } from "react"
+
+import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid"
+import { useFavourites } from "@/stores/favourites"
+
+import NoFavouritesMessage from "../NoFavouritesMessage/NoFavouritesMessage"
+import styles from "./FavouritesPageComponents.module.scss"
 
 export default function FavouritesPageComponents() {
-  const { favourites } = useFavourites((state) => state);
+  const { favourites } = useFavourites((state) => state)
   return (
     <section
       className={`${styles.favourites}`}
@@ -26,5 +28,5 @@ export default function FavouritesPageComponents() {
         </Fragment>
       )}
     </section>
-  );
+  )
 }

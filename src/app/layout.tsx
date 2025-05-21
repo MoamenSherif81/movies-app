@@ -1,18 +1,20 @@
-import type { Metadata } from "next";
-import "../styles/app.scss";
-import Navbar from "@/components/common/navbar/Navbar";
-import Footer from "@/components/common/footer/Footer";
-import Providers from "@/components/common/Providers";
+import "../styles/app.scss"
+
+import type { Metadata } from "next"
+
+import Footer from "@/components/common/footer/Footer"
+import Navbar from "@/components/common/navbar/Navbar"
+import Providers from "@/components/common/Providers"
 
 export const metadata: Metadata = {
   title: "Movies App",
   description: "Movies App",
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -26,5 +28,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

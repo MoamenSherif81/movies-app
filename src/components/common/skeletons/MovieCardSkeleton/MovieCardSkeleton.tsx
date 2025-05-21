@@ -1,6 +1,8 @@
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import styles from "./MovieCardSkeleton.module.scss";
-import "react-loading-skeleton/dist/skeleton.css";
+import "react-loading-skeleton/dist/skeleton.css"
+
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton"
+
+import styles from "./MovieCardSkeleton.module.scss"
 
 export default function MovieCardSkeleton() {
   return (
@@ -15,5 +17,5 @@ export default function MovieCardSkeleton() {
         </div>
       </div>
     </SkeletonTheme>
-  );
+  )
 }

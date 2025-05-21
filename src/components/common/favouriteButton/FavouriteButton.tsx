@@ -1,14 +1,16 @@
-"use client";
+"use client"
 
-import { favouriteIcon, filledFavouriteIcon } from "@/utils/icons";
-import styles from "./FavouriteButton.module.scss";
-import { useFavourites } from "@/stores/favourites";
-import { useMemo } from "react";
-import { IMovie } from "@/types/types";
+import { useMemo } from "react"
+
+import { useFavourites } from "@/stores/favourites"
+import type { IMovie } from "@/types/types"
+import { favouriteIcon, filledFavouriteIcon } from "@/utils/icons"
+
+import styles from "./FavouriteButton.module.scss"
 
 interface IFavouriteButtonProps {
-  movie: IMovie;
-  className?: string;
+  movie: IMovie
+  className?: string
 }
 
 export default function FavouriteButton({
@@ -17,24 +19,24 @@ export default function FavouriteButton({
 }: IFavouriteButtonProps) {
   const { favourites, addFavourite, removeFavourite } = useFavourites(
     (state) => state
-  );
+  )
 
   const isFavourite = useMemo(() => {
-    return favourites.some((movieEle) => movieEle?.id == movie?.id);
-  }, [favourites]);
+    return favourites.some((movieEle) => movieEle?.id == movie?.id)
+  }, [favourites, movie?.id])
 
   function handleToggleFavourite(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
-    e.stopPropagation();
-    e.preventDefault();
-    if (isFavourite) removeFavourite(movie);
-    else addFavourite(movie);
+    e.stopPropagation()
+    e.preventDefault()
+    if (isFavourite) removeFavourite(movie)
+    else addFavourite(movie)
   }
 
   const buttonText = isFavourite
     ? `Remove ${movie.name} from favorites`
-    : `Add ${movie.name} to favorites`;
+    : `Add ${movie.name} to favorites`
 
   return (
     <button
@@ -48,5 +50,5 @@ export default function FavouriteButton({
         {isFavourite ? filledFavouriteIcon : favouriteIcon}
       </span>
     </button>
-  );
+  )
 }

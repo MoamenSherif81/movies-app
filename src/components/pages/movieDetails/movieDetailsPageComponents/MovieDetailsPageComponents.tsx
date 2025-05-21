@@ -1,17 +1,16 @@
-import moment from "moment";
-import { ICastMember, IMovie } from "../../../../types/types";
-import MovieDetailsOverview from "../movieDetailsOverview/MovieDetailsOverview";
-import styles from "./MovieDetailsPageComponents.module.scss";
-import MovieCast from "../movieCast/MovieCast";
+import type { ICastMember, IMovie } from "../../../../types/types"
+import MovieCast from "../movieCast/MovieCast"
+import MovieDetailsOverview from "../movieDetailsOverview/MovieDetailsOverview"
+import styles from "./MovieDetailsPageComponents.module.scss"
 
 interface IMovieDetailsPageComponentsProps {
-  data: IMovie;
+  data: IMovie
   castData: ICastMember[]
 }
 
 export default function MovieDetailsPageComponents({
   data,
-  castData
+  castData,
 }: IMovieDetailsPageComponentsProps) {
   return (
     <div className={styles.details} aria-labelledby="movie-title">
@@ -21,5 +20,5 @@ export default function MovieDetailsPageComponents({
       <MovieDetailsOverview data={data} />
       {!!castData?.length && <MovieCast data={castData} />}
     </div>
-  );
+  )
 }

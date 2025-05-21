@@ -1,16 +1,18 @@
-import { ICastMember } from "@/types/types";
-import styles from "./MovieCast.module.scss";
-import Image from "next/image";
-import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized";
+import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized"
+import type { ICastMember } from "@/types/types"
+
+import styles from "./MovieCast.module.scss"
 
 interface IMovieCastProps {
-  data: ICastMember[];
+  data: ICastMember[]
 }
 
 export default function MovieCast({ data }: IMovieCastProps) {
   return (
     <section className={styles.cast} aria-labelledby="cast-heading">
-      <h3 className="section_title" id="cast-heading">Cast</h3>
+      <h3 className="section_title" id="cast-heading">
+        Cast
+      </h3>
       <ul className={styles.cast__list} aria-label="List of cast members">
         {data.map((castMember) => (
           <li
@@ -35,5 +37,5 @@ export default function MovieCast({ data }: IMovieCastProps) {
         ))}
       </ul>
     </section>
-  );
+  )
 }

@@ -1,12 +1,12 @@
-"use client";
+"use client"
 
-import { IMovie } from "@/types/types";
-import styles from "./HomePageTrending.module.scss";
-import MovieCard from "@/components/common/movieCard/MovieCard";
-import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid";
+import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid"
+import type { IMovie } from "@/types/types"
+
+import styles from "./HomePageTrending.module.scss"
 
 interface ITrendingProps {
-  movies: IMovie[];
+  movies: IMovie[]
 }
 
 export default function HomePageTrending({ movies }: ITrendingProps) {
@@ -20,5 +20,5 @@ export default function HomePageTrending({ movies }: ITrendingProps) {
       </h3>
       <MoviesGrid aria-label="Collection of trending movies" movies={movies} />
     </section>
-  );
+  )
 }

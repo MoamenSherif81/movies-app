@@ -1,8 +1,8 @@
-import styles from "./Button.module.scss";
+import styles from "./Button.module.scss"
 
 interface IButtonProps {
-  isLoading: boolean;
-  children: React.ReactNode;
+  isLoading: boolean
+  children: React.ReactNode
 }
 
 export default function Button({ isLoading, children }: IButtonProps) {
@@ -14,5 +14,5 @@ export default function Button({ isLoading, children }: IButtonProps) {
     >
       {children}
     </button>
-  );
+  )
 }

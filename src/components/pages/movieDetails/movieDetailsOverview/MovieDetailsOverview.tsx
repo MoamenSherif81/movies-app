@@ -1,13 +1,14 @@
-import { IMovie } from "@/types/types";
-import parse from "html-react-parser";
-import styles from "./MovieDetailsOverview.module.scss";
-import Image from "next/image";
-import moment from "moment";
-import { starIcon } from "@/utils/icons";
-import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized";
+import parse from "html-react-parser"
+import moment from "moment"
+
+import ImageOptimized from "@/components/common/ImageOptimized/ImageOptimized"
+import type { IMovie } from "@/types/types"
+import { starIcon } from "@/utils/icons"
+
+import styles from "./MovieDetailsOverview.module.scss"
 
 interface IMovieDetailsOverviewProps {
-  data: IMovie;
+  data: IMovie
 }
 
 export default function MovieDetailsOverview({
@@ -43,7 +44,7 @@ export default function MovieDetailsOverview({
       title: "Runtime",
       value: `${data?.runtime} min`,
     },
-  ].filter((item) => item != false);
+  ].filter((item) => item != false)
 
   return (
     <section className={`${styles.overview}`}>
@@ -101,5 +102,5 @@ export default function MovieDetailsOverview({
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -10,7 +10,7 @@
     "format": "next lint --fix"
   },
   "dependencies": {
-    "@next/eslint-plugin-next": "^14.2.14",
+    "@next/eslint-plugin-next": "^15.3.2",
     "@tanstack/react-query": "^5.76.1",
     "@tanstack/react-query-devtools": "^5.76.1",
     "axios": "^1.9.0",
@@ -32,7 +32,9 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
     "eslint-config-next": "15.3.2",
     "prettier": "3.3.3",
     "sass": "^1.89.0",
