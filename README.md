@@ -95,6 +95,21 @@ SCSS modules were used for styling to ensure component-scoped CSS and prevent st
 - Flexible grid layouts that transform based on screen dimensions
 - Optimized UI elements that work well on both desktop and touch devices
 
+## Public API Integration and Challenges
+
+This application uses the **TVmaze API** as the public data source for fetching movies and TV shows information. While TVmaze provides a rich dataset, it has some limitations that required creative solutions:
+
+- **Missing Images:**
+  Some shows returned by the API do not have poster or backdrop images. To ensure a consistent and polished UI, I implemented a fallback mechanism that displays a placeholder image whenever the API response lacks an image.
+
+- **No Pagination Support:**
+  The TVmaze API does not support pagination for search results. To handle this, the app limits the number of displayed results and optimizes search queries to keep performance smooth.
+
+- **No Trending or Popular Shows Endpoint:**
+  TVmaze does not provide a dedicated endpoint for trending or popular shows. To mimic this feature, the app fetches a broad list of shows and manually selects the first 8 items to display in a “Trending” section on the home page.
+
+These adjustments enable a smooth and user-friendly experience despite the API constraints.
+
 ## Additional Features
 
 ### React Query Integration
