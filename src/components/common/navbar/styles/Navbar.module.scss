@@ -1,4 +1,5 @@
 @use "@/styles/variables.scss" as *;
+@use "@/styles/mixins.scss" as *;
 
 .navbar{
   position: sticky;
@@ -9,7 +10,7 @@
   border-bottom: $border;
   z-index: 1;
 
-  .navbar__content {
+  &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,6 +18,14 @@
 
   &__logo{
     cursor: pointer;
+  }
+
+  &__burger{
+    cursor: pointer;
+    display: none;
+    background-color: unset;
+    border: 0;
+    color: white;
   }
 
   &__links{
@@ -38,6 +47,36 @@
       &.active{
         color: white;
       }
+    }
+  }
+}
+
+@include responsive(sm){
+  .navbar{
+    padding-inline: unset;
+    &__content{
+      nav{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $bg_color;
+        border-bottom: $border;
+        width: 100vw;
+        padding-inline: 1rem;
+        overflow: hidden;
+        transition: .3s;
+
+        .navbar__links{
+          flex-direction: column;
+          gap: 2rem;
+          padding-block: 1.5rem;
+        }
+      }
+    }
+
+    &__burger{
+      cursor: pointer;
+      display: flex;
     }
   }
 }

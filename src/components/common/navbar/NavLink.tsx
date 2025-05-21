@@ -9,9 +9,10 @@ interface INavLinkProps {
   href: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-export default function NavLink({ href, children, className }: INavLinkProps) {
+export default function NavLink({ href, children, className, onClick }: INavLinkProps) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -21,6 +22,7 @@ export default function NavLink({ href, children, className }: INavLinkProps) {
         className={`${className || ""} ${isActive ? styles.active : ""}`}
         href={href}
         aria-current={isActive ? "page" : undefined}
+        onClick={onClick}
       >
         {children}
       </Link>
