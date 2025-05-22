@@ -1,136 +1,114 @@
 # Movie Search Application
 
-## Introduction
+A modern Next.js app for searching movies, browsing detailed information, and managing your personal favorites. Built with Next.js 15, React 19, TypeScript, and SCSS modules, the app is fast, responsive, and easy to use on any device. React Server Components are used for performance, and the UI adapts seamlessly from desktop to mobile.
 
-This Next.js app lets you easily search for movies, check out detailed info about each one, and keep track of your favorite films. It’s built using Next.js 15, React 19, TypeScript, and SCSS modules to ensure a smooth and modern experience. The app also uses React Server Components for better performance and adapts beautifully to different screen sizes, making it great on both desktop and mobile devices.
+---
 
 ## Features
 
-- **Movie Search**: Search for movies by title
-- **Movie Details**: View comprehensive information about movies including summary, cast, and ratings
-- **Favorites Management**: Add/remove movies to a favorites list that persists between sessions
-- **Responsive Design**: Fully responsive layout that works seamlessly across mobile, tablet, and desktop
-- **Performance Optimization**: Optimized image loading and code splitting for better performance
-- **Accessibility**: Built with web accessibility guidelines in mind
+- **Search:** Instantly find movies by title.
+- **Details:** Dive into summaries, cast lists, and ratings for each movie.
+- **Favorites:** Add or remove movies from a favorites list, which stays saved between sessions.
+- **Responsive Design:** Looks and works great on phones, tablets, and desktops.
+- **Performance:** Optimized image loading and code splitting for a smooth experience.
+- **Accessibility:** Designed with accessibility best practices in mind.
 
-## Installation and Setup
+---
 
-### Prerequisites
+## Getting Started
 
-- [Bun](https://bun.sh/) (Package Manager)
-- Node.js (v18 or higher recommended)
+### Requirements
 
-### Installation Steps
+- [Bun](https://bun.sh/) (for package management)
+- Node.js (v18+)
 
-1. Clone the repository:
+### Setup
 
-```bash
-git clone <repository-url>
-cd interview-test
-```
+1. **Clone the repo:**
 
-2. Install dependencies:
+    ```bash
+    git clone <repository-url>
+    cd interview-test
+    ```
 
-```bash
-bun install
-```
+2. **Install dependencies:**
 
-3. Start the development server:
+    ```bash
+    bun install
+    ```
 
-```bash
-bun run dev
-```
+3. **Start the dev server:**
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+    ```bash
+    bun run dev
+    ```
 
+4. **Open** [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Design Decisions
+---
 
-### Component Structure
+## Project Structure & Design
 
-Components are organized into two main categories:
+### Components
 
-- **Common components**: Reusable UI elements such as buttons, cards, and navigation.  
-- **Page components**: Components specific to individual pages or features of the application.  
-- **Styles**: Each component has its own scoped `.module.scss` file for modular and maintainable styling.
-
-This separation promotes better reusability and maintainability throughout the codebase.
+- **Common components:** Reusable UI elements (buttons, cards, navigation).
+- **Page components:** Feature-specific components for each page.
+- **Styles:** Each component has its own `.module.scss` file for modular, maintainable styling.
 
 ### State Management
 
-Zustand was chosen for state management due to its simplicity and efficiency. It is primarily used to manage the favorites list, which needs to be accessible across different components and persisted in local storage.
+- Uses **Zustand** for global state (mainly favorites), chosen for its simplicity and local storage persistence.
 
-### Styling Approach
+### Styling
 
-SCSS modules were used for styling to ensure component-scoped CSS and prevent style leakage. This approach also enables better organization of styles and supports the use of variables and mixins for consistent design elements.
+- **SCSS modules** keep styles scoped to components, preventing conflicts and making it easy to use variables and mixins for consistent design.
 
-## Challenges and Solutions
+---
 
-### Challenge 1: Server vs. Client Components
+## Key Challenges & Solutions
 
-**Challenge**: Determining which components should be server components and which should be client components.
+### Server vs. Client Components
 
-**Solution**: I implemented a clear separation by analyzing component requirements:
+- **Approach:** Interactive elements (like search bars and favorite buttons) are client components; data display is handled by server components. This keeps the app fast and interactive.
 
-- Components that need interactivity (like search inputs and favorite buttons) are client components
-- Components that primarily display data are server components
-- This approach optimizes both performance and user experience
+### Image Optimization
 
-### Challenge 2: Image Optimization
+- **Problem:** Movie posters vary in size and quality.
+- **Solution:** Custom `ImageOptimized` component (built on Next.js Image) with lazy loading and placeholders for a smooth, consistent look.
 
-**Challenge**: Handling movie poster images of varying sizes and qualities while maintaining performance.
+### Responsive Design
 
-**Solution**: Created a custom `ImageOptimized` component using Next.js Image component with:
+- **Problem:** Ensuring a consistent experience across devices.
+- **Solution:** SCSS mixins for media queries, flexible grid layouts, and touch-friendly UI elements.
 
-- Lazy loading for better performance
-- Placeholder images for better user experience during loading
+---
 
-### Challenge 3: Responsive Design
+## API Integration & Workarounds
 
-**Challenge**: Creating a consistent user experience across all device sizes.
+The app uses the **TVmaze API** for movie and TV show data. Some workarounds were needed due to API limitations:
 
-**Solution**: Implemented a responsive design approach with:
+- **Missing Images:** Fallback placeholders are shown if the API doesn’t provide images.
+- **No Pagination:** Results are limited and queries optimized for smooth performance.
+- **No Trending/Popular Endpoint:** The app fetches a broad list and manually selects the first 8 items for a "Trending" section.
 
-- SCSS mixins for media queries to adapt layouts at different breakpoints
-- Flexible grid layouts that transform based on screen dimensions
-- Optimized UI elements that work well on both desktop and touch devices
-
-## Public API Integration and Challenges
-
-This application uses the **TVmaze API** as the public data source for fetching movies and TV shows information. While TVmaze provides a rich dataset, it has some limitations that required creative solutions:
-
-- **Missing Images:**
-  Some shows returned by the API do not have poster or backdrop images. To ensure a consistent and polished UI, I implemented a fallback mechanism that displays a placeholder image whenever the API response lacks an image.
-
-- **No Pagination Support:**
-  The TVmaze API does not support pagination for search results. To handle this, the app limits the number of displayed results and optimizes search queries to keep performance smooth.
-
-- **No Trending or Popular Shows Endpoint:**
-  TVmaze does not provide a dedicated endpoint for trending or popular shows. To mimic this feature, the app fetches a broad list of shows and manually selects the first 8 items to display in a “Trending” section on the home page.
-
-These adjustments enable a smooth and user-friendly experience despite the API constraints.
+---
 
 ## Additional Features
 
-### React Query Integration
+- **React Query:** Handles data fetching, caching, and provides loading/error states.
+- **Skeleton Loading:** Instead of spinners, skeleton screens mimic the content layout for a better loading experience.
 
-I integrated React Query for data fetching, which provides:
+---
 
-- Loading and error states
-- Optimistic updates for a better user experience
+## Tech Stack
 
-### Skeleton Loading States
+- **Next.js 15.3** (App Router)
+- **React 19**
+- **TypeScript**
+- **SCSS Modules**
+- **Zustand**
+- **React Query**
+- **Axios**
+- **ESLint & Prettier**
 
-Instead of simple loading spinners, I implemented skeleton screens that mimic the layout of the content being loaded, providing a better user experience during data fetching.
-
-## Technologies Used
-
-- **Next.js 15.3**: React framework with App Router
-- **React 19**: UI library
-- **TypeScript**: For type safety
-- **SCSS Modules**: For component-scoped styling
-- **Zustand**: For state management
-- **React Query**: For data fetching and caching
-- **Axios**: For API requests
-- **ESLint & Prettier**: For code quality
-
+---
