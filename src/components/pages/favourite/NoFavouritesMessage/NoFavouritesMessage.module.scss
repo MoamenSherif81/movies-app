@@ -13,13 +13,4 @@
   &__description{
     color: $text_gray;
   }
-
-  &__btn{
-    padding: 0.5rem 1rem;
-    border: none;
-    cursor: pointer;
-    background-color: $primary_color;
-    color: white;
-    border-radius: $border_radius;
-  }
 }

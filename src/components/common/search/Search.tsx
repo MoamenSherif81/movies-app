@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useState } from "react"
 
+import Button from "../button/Button"
 import styles from "./Search.module.scss"
 
 interface ISearchProps {
@@ -22,11 +23,15 @@ export default function Search({
 }: ISearchProps) {
   const [input, setInput] = useState(initialValue)
   const router = useRouter()
+  const [innerLoading, setInnerLoading] = useState(false)
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (onSearch) onSearch(input)
-    else router.push(`/search?q=${input}`)
+    else {
+      router.push(`/search?q=${input}`)
+      setInnerLoading(true)
+    }
   }
 
   return (
@@ -51,14 +56,13 @@ export default function Search({
           aria-autocomplete="list"
           autoComplete="off"
         />
-        <button
-          className={`${styles.search__btn}`}
+        <Button
+          isLoading={isLoading || innerLoading}
           type="submit"
-          disabled={isLoading}
-          aria-busy={isLoading ? "true" : "false"}
+          withoutBorderRadius
         >
           Search
-        </button>
+        </Button>
       </form>
     </section>
   )

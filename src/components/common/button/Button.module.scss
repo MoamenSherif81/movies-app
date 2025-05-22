@@ -1,3 +1,5 @@
+@use "@/styles/variables" as *;
+
 .button{
   padding: 0.5rem 1rem;
   border: none;
@@ -5,6 +7,11 @@
   background-color: $primary_color;
   color: white;
   font-size: 1rem;
+  border-radius: $border_radius;
+
+  &--no-radius{
+    border-radius: unset;
+  }
 
   &:disabled {
     opacity: .7;
