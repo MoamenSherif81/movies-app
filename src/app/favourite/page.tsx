@@ -1,4 +1,4 @@
-import FavouritesPageComponents from "@/components/pages/favourite/FavouritesPageComponents/FavouritesPageComponents"
+import FavouritesPageComponents from "@/components/pages/favourite/favouritesPageComponents/FavouritesPageComponents"
 
 export default function page() {
   return (

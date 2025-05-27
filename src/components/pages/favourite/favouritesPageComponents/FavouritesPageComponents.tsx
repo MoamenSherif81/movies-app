@@ -5,7 +5,7 @@ import { Fragment } from "react"
 import MoviesGrid from "@/components/common/moviesGrid/MoviesGrid"
 import { useFavourites } from "@/stores/favourites"
 
-import NoFavouritesMessage from "../NoFavouritesMessage/NoFavouritesMessage"
+import NoFavouritesMessage from "../noFavouritesMessage/NoFavouritesMessage"
 import styles from "./FavouritesPageComponents.module.scss"
 
 export default function FavouritesPageComponents() {

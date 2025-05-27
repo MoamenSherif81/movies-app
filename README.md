@@ -27,7 +27,7 @@ A modern Next.js app for searching movies, browsing detailed information, and ma
 1. **Clone the repo:**
 
     ```bash
-    git clone <repository-url>
+    git clone https://github.com/MoamenSherif81/movies-app
     cd interview-test
     ```
 
